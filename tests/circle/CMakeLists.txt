@@ -4,7 +4,7 @@ add_executable(circle-test circle.cpp)
 
 target_link_libraries(circle-test
         PRIVATE GTest::gtest GTest::gtest_main
-        INTERFACE curves-lib)
+        curves-lib)
 
 add_test(
         NAME circle
