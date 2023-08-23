@@ -11,13 +11,13 @@ namespace curves {
     struct Vector;
 
     template<std::floating_point T>
-    using point2D = Point<2, T>;
+    using point2D [[maybe_unused]] = Point<2, T>;
     template<std::floating_point T>
-    using point3D = Point<3, T>;
+    using point3D [[maybe_unused]] = Point<3, T>;
     template<std::floating_point T>
-    using vector2D = Vector<2, T>;
+    using vector2D [[maybe_unused]] = Vector<2, T>;
     template<std::floating_point T>
-    using vector3D = Vector<3, T>;
+    using vector3D [[maybe_unused]] = Vector<3, T>;
 
     template<std::size_t dimension, std::floating_point T>
     struct Vector : public std::array<T, dimension> {

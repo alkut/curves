@@ -1,0 +1,16 @@
+BasedOnStyle: Google
+---
+AccessModifierOffset: -4
+AlignAfterOpenBracket: Align
+AlignArrayOfStructures: Left
+AlignConsecutiveAssignments: AcrossEmptyLinesAndComments
+Language: Cpp
+AllowShortFunctionsOnASingleLine: Empty
+AllowShortIfStatementsOnASingleLine: false
+AllowShortLambdasOnASingleLine: Empty
+DerivePointerAlignment: false
+PointerAlignment: Left
+SortIncludes: Never
+PackConstructorInitializers: CurrentLine
+BreakConstructorInitializers: BeforeColon
+BreakInheritanceList: AfterComma
