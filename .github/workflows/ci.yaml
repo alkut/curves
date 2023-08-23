@@ -1,0 +1,22 @@
+name: CI
+on: [ push ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: alexxlalex/cpp-cheatsheets:latest
+    steps:
+      - name: clone
+        uses: actions/checkout@v1
+      - name: add build folder
+        run: mkdir -p build
+      - name: build
+        working-directory: ./build
+        run: cmake -Wno-dev -DCMAKE_C_COMPILER=gcc-12 -DCMAKE_CXX_COMPILER=g++-12 -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTS=ON -DBUILD_EXAMPLES=ON -DRUN_ON_CI=ON -G "Ninja" -S .. -B . && cmake --build . -j4
+      - name: tests
+        working-directory: ./build
+        run: ctest
+      - name: run lint
+        run: echo "$(cpplint --recursive --exclude=build/* --output=emacs . > analyze.txt 2> analyze.txt)"
+      - name: show lint analyze
+        run: echo "$(cat analyze.txt)"
