@@ -16,3 +16,13 @@ endif ()
 option(BUILD_SHARED "build shared lib instead of static" OFF)
 
 option(RUN_ON_CI "used for ci/cd" OFF)
+
+option(SANITIZE "memory sanitizer" OFF)
+
+if (SANITIZE)
+    if (MSVC)
+        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /fsanitize=address /fsanitize=leak /fsanitize=memory")
+    else ()
+        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fsanitize=memory -fno-omit-frame-pointer")
+    endif ()
+endif ()

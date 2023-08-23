@@ -27,7 +27,7 @@ Circle::Circle(point2D<float> planeXYPosition, float radius)
 
 void Circle::Validate(float radius) {
   if (radius <= std::numeric_limits<float>::epsilon()) {
-    throw std::invalid_argument("radius_ is negative");
+    throw std::invalid_argument("radius is negative");
   }
 }
 

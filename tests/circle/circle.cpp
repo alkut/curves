@@ -9,10 +9,14 @@ TEST(circle, validation) {
 
 TEST(circle, position) {
   auto circle                     = curves::Circle::construct({0, 0}, 1.f);
-  curves::point3D<float> expected = {1.f, 0.f};
+  curves::point3D<float> expected = {1.f, 0.f, 0.f};
   VerifyEqual(circle->Position(0.f), expected);
-  auto leak = new int(2);
-  ++*leak;
+}
+
+TEST(circle, derivative) {
+  auto circle                      = curves::Circle::construct({0, 0}, 1.f);
+  curves::vector3D<float> expected = {0.f, 1.f, 0.f};
+  VerifyEqual(circle->Derivative(0.f), expected);
 }
 
 int main(int argc, char** argv) {
