@@ -3,7 +3,8 @@ project(curves-lib
         VERSION 0.0.0)
 
 set(SOURCES
-        Circle.cpp)
+        Circle.cpp
+        Ellipse.cpp)
 
 if (BUILD_SHARED)
     message(STATUS "building shared lib")
