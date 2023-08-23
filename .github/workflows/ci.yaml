@@ -20,3 +20,5 @@ jobs:
         run: echo "$(cpplint --recursive --exclude=build/* --output=emacs . > analyze.txt 2> analyze.txt)"
       - name: show lint analyze
         run: echo "$(cat analyze.txt)"
+      - name: valgrind circle test
+        run: valgrind ./build/tests/circle/circle-test

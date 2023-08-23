@@ -6,7 +6,7 @@
 namespace curves {
 class ICurve {
   public:
-  virtual ~ICurve() = 0;
+  virtual ~ICurve()                                             = default;
   virtual point3D<float> Position(float time) const noexcept = 0;
   virtual vector3D<float> Derivative(float time) const noexcept = 0;
 };
