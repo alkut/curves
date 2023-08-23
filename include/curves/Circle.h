@@ -23,6 +23,7 @@ class Circle final : public ICurve {
 
   point3D<float> Position(float time) const noexcept override;
   vector3D<float> Derivative(float time) const noexcept override;
+  float GetRadius() const noexcept;
 
   ~Circle() override = default;
 

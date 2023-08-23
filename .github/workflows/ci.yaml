@@ -22,3 +22,5 @@ jobs:
         run: echo "$(cat analyze.txt)"
       - name: valgrind circle test
         run: valgrind ./build/tests/circle/circle-test
+      - name: valgrind ellipse test
+        run: valgrind ./build/tests/ellipse/ellipse-test

@@ -30,5 +30,8 @@ void Circle::Validate(float radius) {
     throw std::invalid_argument("radius is negative");
   }
 }
+float Circle::GetRadius() const noexcept {
+  return radius_;
+}
 
 }  // namespace curves

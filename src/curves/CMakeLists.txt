@@ -4,7 +4,8 @@ project(curves-lib
 
 set(SOURCES
         Circle.cpp
-        Ellipse.cpp)
+        Ellipse.cpp
+        Helix.cpp)
 
 if (BUILD_SHARED)
     message(STATUS "building shared lib")
