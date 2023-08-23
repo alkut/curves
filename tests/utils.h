@@ -3,6 +3,8 @@
 
 #include "Point.h"
 
+#include <cmath>
+
 #include <gtest/gtest.h>
 
 template<std::size_t dimension, std::floating_point T>
