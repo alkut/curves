@@ -12,7 +12,7 @@ jobs:
         run: mkdir -p build
       - name: build
         working-directory: ./build
-        run: cmake -Wno-dev -DCMAKE_C_COMPILER=gcc-12 -DCMAKE_CXX_COMPILER=g++-12 -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTS=ON -DBUILD_EXAMPLES=ON -DRUN_ON_CI=ON -G "Ninja" -S .. -B . && cmake --build . -j4
+        run: cmake -Wno-dev -DCMAKE_C_COMPILER=gcc-12 -DCMAKE_CXX_COMPILER=g++-12 -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTS=ON -DBUILD_EXAMPLES=ON -DRUN_ON_CI=ON -DSANITIZE=ON -G "Ninja" -S .. -B . && cmake --build . -j4
       - name: tests
         working-directory: ./build
         run: ctest
@@ -24,3 +24,7 @@ jobs:
         run: valgrind ./build/tests/circle/circle-test
       - name: valgrind ellipse test
         run: valgrind ./build/tests/ellipse/ellipse-test
+      - name: valgrind helix test
+        run: valgrind ./build/tests/helix/helix-test
+      - name: valgrind example
+        run: valgrind ./build/examples/example

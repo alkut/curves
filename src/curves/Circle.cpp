@@ -6,10 +6,10 @@
 
 namespace curves {
 
-std::shared_ptr<Circle> Circle::construct(point2D<float> planeXYCenterPosition,
+std::shared_ptr<ICurve> Circle::construct(point2D<float> planeXYCenterPosition,
                                           float radius) {
   Validate(radius);
-  return std::shared_ptr<Circle>(new Circle(planeXYCenterPosition, radius));
+  return std::shared_ptr<ICurve>(new Circle(planeXYCenterPosition, radius));
 }
 
 point3D<float> Circle::Position(float time) const noexcept {

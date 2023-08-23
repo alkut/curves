@@ -19,8 +19,8 @@ class Helix final : public ICurve {
    * @return shared_ptr if success
    * @throws std::invalid_argument if validation fails
    */
-  static std::shared_ptr<Helix> construct(point2D<float> planeXYCenterPosition,
-                                          float radius, float step);
+      static std::shared_ptr<ICurve> construct(
+          point2D<float> planeXYCenterPosition, float radius, float step);
 
   point3D<float> Position(float time) const noexcept override;
   vector3D<float> Derivative(float time) const noexcept override;

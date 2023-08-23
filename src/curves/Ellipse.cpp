@@ -7,10 +7,9 @@
 
 namespace curves {
 
-std::shared_ptr<Ellipse> Ellipse::construct(
-    point2D<float> planeXYCenterPosition, float radiusX, float radiusY) {
+std::shared_ptr<ICurve> Ellipse::construct(point2D<float> planeXYCenterPosition, float radiusX, float radiusY) {
   Validate(radiusX, radiusY);
-  return std::shared_ptr<Ellipse>(
+  return std::shared_ptr<ICurve>(
       new Ellipse(planeXYCenterPosition, radiusX, radiusY));
 }
 

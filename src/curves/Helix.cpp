@@ -7,10 +7,11 @@
 
 namespace curves {
 
-std::shared_ptr<Helix> Helix::construct(point2D<float> planeXYCenterPosition,
-                                        float radius, float step) {
+std::shared_ptr<ICurve> Helix::construct(point2D<float> planeXYCenterPosition,
+                                         float radius, float step) {
   Validate(radius);
-  return std::shared_ptr<Helix>(new Helix(planeXYCenterPosition, radius, step));
+  return std::shared_ptr<ICurve>(
+      new Helix(planeXYCenterPosition, radius, step));
 }
 
 point3D<float> Helix::Position(float time) const noexcept {

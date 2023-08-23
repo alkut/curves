@@ -18,7 +18,7 @@ class Circle final : public ICurve {
    * @return shared_ptr if success
    * @throws std::invalid_argument if validation fails
    */
-      static std::shared_ptr<Circle> construct(
+      static std::shared_ptr<ICurve> construct(
           point2D<float> planeXYCenterPosition, float radius);
 
   point3D<float> Position(float time) const noexcept override;

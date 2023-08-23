@@ -3,6 +3,7 @@
 
 #include <array>
 #include <concepts>
+#include <iostream>
 
 namespace curves {
 
@@ -33,6 +34,9 @@ template<std::size_t dimension, std::floating_point T>
           const Vector<dimension, T>& rhs) const noexcept;
       constexpr Vector<dimension, T>& operator += (const Vector<dimension, T>& rhs) noexcept;
         constexpr Vector<dimension, T>& operator -= (const Vector<dimension, T>& rhs) noexcept;
+      template <std::size_t size, typename U>
+      friend std::ostream& operator<<(std::ostream& out,
+                                      const Vector<size, U>& vector);
     };
 
     template<std::size_t dimension, std::floating_point T>
@@ -45,6 +49,9 @@ template<std::size_t dimension, std::floating_point T>
             const Vector<dimension, T>& rhs) const noexcept;
         constexpr Point<dimension, T>& operator += (const Vector<dimension, T>& rhs) noexcept;
         constexpr Point<dimension, T>& operator -= (const Vector<dimension, T>& rhs) noexcept;
+        template <std::size_t size, typename U>
+        friend std::ostream& operator<<(std::ostream& out,
+                                        const Point<size, U>& vector);
     };
     }  // namespace curves
 
