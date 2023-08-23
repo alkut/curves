@@ -4,8 +4,9 @@ project(curves)
 set(CMAKE_CXX_STANDARD 23)
 
 include_directories(include)
-add_subdirectory(src/curves)
-add_subdirectory(examples)
 
 include(cmake/Env.cmake)
 include(cmake/Options.cmake)
+
+add_subdirectory(src/curves)
+add_subdirectory(examples)

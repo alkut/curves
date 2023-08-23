@@ -7,9 +7,11 @@
 
 #include <random>
 #include <limits>
+#include <vector>
 
 namespace curves::generator {
 std::shared_ptr<curves::ICurve> generate();
+std::vector<std::shared_ptr<curves::ICurve>> generateCircles(std::size_t count);
 
 std::shared_ptr<curves::ICurve> generateCircle();
 std::shared_ptr<curves::ICurve> generateEllipse();

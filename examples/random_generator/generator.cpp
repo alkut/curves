@@ -27,6 +27,15 @@ std::shared_ptr<curves::ICurve> generate() {
   throw std::runtime_error("something strange happened");
 }
 
+std::vector<std::shared_ptr<curves::ICurve>> generateCircles(
+    std::size_t count) {
+  std::vector<std::shared_ptr<curves::ICurve>> res(count);
+  for (auto& curve : res) {
+    curve = generateCircle();
+  }
+  return res;
+}
+
 std::shared_ptr<curves::ICurve> generateCircle() {
   return curves::Circle::construct(
       {0, 0},

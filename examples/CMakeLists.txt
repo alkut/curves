@@ -5,4 +5,4 @@ add_subdirectory(summator)
 
 add_executable(example example.cpp)
 
-target_link_libraries(example PRIVATE curves-lib generator summator)
+target_link_libraries(example PRIVATE curves-lib generator-lib summator-lib)
