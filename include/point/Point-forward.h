@@ -5,7 +5,8 @@
 #include <concepts>
 
 namespace curves {
-    template<std::size_t dimension, std::floating_point T>
+
+template<std::size_t dimension, std::floating_point T>
     struct Point;
     template<std::size_t dimension, std::floating_point T>
     struct Vector;
@@ -21,23 +22,30 @@ namespace curves {
 
     template<std::size_t dimension, std::floating_point T>
     struct Vector : public std::array<T, dimension> {
-        constexpr Vector<dimension, T> operator * (T scalar) const noexcept;
-        constexpr Vector<dimension, T>& operator *= (T scalar) noexcept;
-        constexpr Point<dimension, T> operator + (const Point<dimension, T>& rhs) const noexcept;
-        constexpr Vector<dimension, T> operator + (const Vector<dimension, T>& rhs) const noexcept;
-        constexpr Vector<dimension, T> operator - (const Vector<dimension, T>& rhs) const noexcept;
-        constexpr Vector<dimension, T>& operator += (const Vector<dimension, T>& rhs) noexcept;
+      [[nodiscard]] constexpr Vector<dimension, T> operator*(
+          T scalar) const noexcept;
+      constexpr Vector<dimension, T>& operator *= (T scalar) noexcept;
+      [[nodiscard]] constexpr Point<dimension, T> operator+(
+          const Point<dimension, T>& rhs) const noexcept;
+      [[nodiscard]] constexpr Vector<dimension, T> operator+(
+          const Vector<dimension, T>& rhs) const noexcept;
+      [[nodiscard]] constexpr Vector<dimension, T> operator-(
+          const Vector<dimension, T>& rhs) const noexcept;
+      constexpr Vector<dimension, T>& operator += (const Vector<dimension, T>& rhs) noexcept;
         constexpr Vector<dimension, T>& operator -= (const Vector<dimension, T>& rhs) noexcept;
     };
 
     template<std::size_t dimension, std::floating_point T>
     struct Point : public std::array<T, dimension> {
-        constexpr Vector<dimension, T> operator - (const Point<dimension, T>& rhs) const noexcept;
-        constexpr Point<dimension, T> operator + (const Vector<dimension, T>& rhs) const noexcept;
-        constexpr Point<dimension, T> operator - (const Vector<dimension, T>& rhs) const noexcept;
+        [[nodiscard]] constexpr Vector<dimension, T> operator-(
+            const Point<dimension, T>& rhs) const noexcept;
+        [[nodiscard]] constexpr Point<dimension, T> operator+(
+            const Vector<dimension, T>& rhs) const noexcept;
+        [[nodiscard]] constexpr Point<dimension, T> operator-(
+            const Vector<dimension, T>& rhs) const noexcept;
         constexpr Point<dimension, T>& operator += (const Vector<dimension, T>& rhs) noexcept;
         constexpr Point<dimension, T>& operator -= (const Vector<dimension, T>& rhs) noexcept;
     };
-}
+    }  // namespace curves
 
 #endif //CURVES_POINT_FORWARD_H

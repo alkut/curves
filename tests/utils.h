@@ -1,9 +1,10 @@
 #ifndef CURVES_UTILS_H
 #define CURVES_UTILS_H
 
-#include "Point.h"
+#include "point/Point.h"
 
 #include <cmath>
+#include <limits>
 
 #include <gtest/gtest.h>
 

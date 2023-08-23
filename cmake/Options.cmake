@@ -13,6 +13,6 @@ if ( ENABLE_CCACHE )
     include(cmake/EnableCcache.cmake)
 endif ()
 
-option(BUILD_SHARED "build shared lib instead of static" ON)
+option(BUILD_SHARED "build shared lib instead of static" OFF)
 
 option(RUN_ON_CI "used for ci/cd" OFF)
