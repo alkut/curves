@@ -1,20 +1,34 @@
 #include "curves/Circle.h"
 #include "curves/Ellipse.h"
 #include "curves/Helix.h"
-
 #include "point/Point.h"
-
 #include "random_generator/generator.h"
+#include "summator/threads/theads_summator.h"
+#include "summator/openMP/openMP_summator.h"
+#include "summator/naive/naive_summator.h"
 
 #include <vector>
 #include <algorithm>
 #include <iostream>
 #include <numbers>
-#include <list>
-#include <numeric>
+#include <cassert>
+#include <stdexcept>
 
 bool isActuallyCircle(const std::shared_ptr<curves::ICurve>& ptr) {
   return dynamic_cast<curves::Circle*>(ptr.get()) != nullptr;
+}
+
+void testSumOpenMP(
+    const std::vector<std::shared_ptr<curves::ICurve>>& container) {
+  constexpr std::size_t iterations = 10'000'000;
+  for (size_t i = 0; i < iterations; ++i) {
+    bool ok = sumNaive(container) == sumOpenMP(container);
+    // for release config
+    if (!ok) {
+      throw std::runtime_error("openMP doesn't work!!!");
+    }
+    assert(ok);
+  }
 }
 
 int main() {
@@ -49,11 +63,9 @@ int main() {
   }
   std::cout << "\n";
 
-  float sumOfRadii = 0.f;
-  for (const auto& circle : container2) {
-    sumOfRadii += dynamic_cast<curves::Circle*>(circle.get())->GetRadius();
-  }
-  std::cout << "\nTotal sum of radii: " << sumOfRadii << "\n";
+  testSumOpenMP(container2);
+
+  std::cout << "\nTotal sum of radii: " << sumOpenMP(container2) << "\n";
 
   return 0;
 }

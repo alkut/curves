@@ -1,5 +1,8 @@
 project(example)
 
-add_executable(example example.cpp random_generator/generator.cpp)
+add_subdirectory(random_generator)
+add_subdirectory(summator)
 
-target_link_libraries(example PRIVATE curves-lib)
+add_executable(example example.cpp)
+
+target_link_libraries(example PRIVATE curves-lib generator summator)
