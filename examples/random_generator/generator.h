@@ -8,10 +8,12 @@
 #include <random>
 #include <limits>
 
+namespace curves::generator {
 std::shared_ptr<curves::ICurve> generate();
 
 std::shared_ptr<curves::ICurve> generateCircle();
 std::shared_ptr<curves::ICurve> generateEllipse();
 std::shared_ptr<curves::ICurve> generateHelix();
+}  // namespace curves::generator
 
 #endif  // CURVES_GENERATOR_H

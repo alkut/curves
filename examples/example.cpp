@@ -21,7 +21,7 @@ int main() {
   constexpr std::size_t size = 10;
   std::vector<std::shared_ptr<curves::ICurve>> container1(size);
   for (auto& curve : container1) {
-    curve = generate();
+    curve = curves::generator::generate();
   }
   constexpr float time = std::numbers::pi_v<float> / 4.f;
   for (const auto& curve : container1) {

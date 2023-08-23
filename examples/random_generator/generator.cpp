@@ -2,6 +2,8 @@
 
 #include <stdexcept>
 
+namespace curves::generator {
+
 constexpr float maxValue  = 100.f;
 constexpr std::size_t max = std::numeric_limits<std::size_t>::max();
 
@@ -11,10 +13,6 @@ std::default_random_engine randomEngine(randomDevice());
 inline std::size_t random(std::size_t limit = max) {
   return std::uniform_int_distribution<std::size_t>(0, limit)(randomEngine);
 }
-
-std::shared_ptr<curves::ICurve> generateCircle();
-std::shared_ptr<curves::ICurve> generateEllipse();
-std::shared_ptr<curves::ICurve> generateHelix();
 
 std::shared_ptr<curves::ICurve> generate() {
   auto type = random(2);
@@ -46,3 +44,5 @@ std::shared_ptr<curves::ICurve> generateHelix() {
       {0, 0}, maxValue * static_cast<float>(random()) / static_cast<float>(max),
       maxValue * static_cast<float>(random()) / static_cast<float>(max));
 }
+
+}  // namespace curves::generator
