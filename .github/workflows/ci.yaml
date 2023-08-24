@@ -21,10 +21,12 @@ jobs:
       - name: show lint analyze
         run: echo "$(cat analyze.txt)"
       - name: valgrind circle test
-        run: valgrind ./build/tests/circle/circle-test
+        run: valgrind ./bin/circle-test
       - name: valgrind ellipse test
-        run: valgrind ./build/tests/ellipse/ellipse-test
+        run: valgrind ./bin/ellipse-test
       - name: valgrind helix test
-        run: valgrind ./build/tests/helix/helix-test
+        run: valgrind ./bin/helix-test
+      - name: valgrind summator test
+        run: valgrind ./bin/summator-test
       - name: valgrind example
-        run: valgrind ./build/examples/example
+        run: valgrind ./bin/example

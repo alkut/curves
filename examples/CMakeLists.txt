@@ -1,8 +1,12 @@
-project(example)
-
 add_subdirectory(random_generator)
 add_subdirectory(summator)
 
-add_executable(example example.cpp)
+if (BUILD_EXAMPLES)
 
-target_link_libraries(example PRIVATE curves-lib generator-lib summator-lib)
+    project(example)
+
+    add_executable(example example.cpp)
+
+    target_link_libraries(example PRIVATE curves-lib generator-lib summator-lib)
+
+endif ()

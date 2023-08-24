@@ -11,8 +11,6 @@
 #include <algorithm>
 #include <iostream>
 #include <numbers>
-#include <cassert>
-#include <stdexcept>
 #include <ranges>
 
 inline bool isActuallyCircle(const std::shared_ptr<curves::ICurve>& ptr) {

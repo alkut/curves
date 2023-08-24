@@ -14,7 +14,8 @@ docs/rtf/
 docs/xml/
 docs/Doxyfile
 
-
+bin/
+lib/
 
 
 # Compiled Object files

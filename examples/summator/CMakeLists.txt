@@ -1,7 +1,5 @@
 project(summator-lib)
 
-project(summator-test)
-
 add_library(summator-lib STATIC
         naive/naive_summator.cpp
         openMP/openMP_summator.cpp
@@ -9,16 +7,20 @@ add_library(summator-lib STATIC
 
 target_link_libraries(summator-lib PRIVATE curves-lib)
 
-project(summator-test)
+if (BUILD_TESTS)
 
-add_executable(summator-test tests/summators.cpp)
+    project(summator-test)
 
-target_link_libraries(summator-test PRIVATE
-        GTest::gtest GTest::gtest_main
-        curves-lib
-        summator-lib
-        generator-lib)
+    add_executable(summator-test tests/summators.cpp)
 
-add_test(
-        NAME summator
-        COMMAND summator-test)
+    target_link_libraries(summator-test PRIVATE
+            GTest::gtest GTest::gtest_main
+            curves-lib
+            summator-lib
+            generator-lib)
+
+    add_test(
+            NAME summator
+            COMMAND summator-test)
+
+endif ()
