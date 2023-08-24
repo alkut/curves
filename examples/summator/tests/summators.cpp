@@ -6,6 +6,7 @@
 #include "../naive/naive_summator.h"
 #include "../openMP/openMP_summator.h"
 #include "../threads/theads_summator.h"
+#include "../execution_policy/execution_policy_summator.h"
 
 #include "../../random_generator/generator.h"
 
@@ -36,6 +37,20 @@ TEST(threads, big) {
   for (std::size_t i = 0; i < 10; ++i) {
     auto sample = curves::generator::generateCircles(1'000);
     ASSERT_LE(std::fabs(sumNaive(sample) - sumThreads(sample)), 10'000 * eps);
+  }
+}
+
+TEST(policy, small) {
+  for (std::size_t i = 0; i < 1000; ++i) {
+    auto sample = curves::generator::generateCircles(10);
+    ASSERT_LE(std::fabs(sumNaive(sample) - sumPolicy(sample)), 10 * eps);
+  }
+}
+
+TEST(policy, big) {
+  for (std::size_t i = 0; i < 10; ++i) {
+    auto sample = curves::generator::generateCircles(1'000);
+    ASSERT_LE(std::fabs(sumNaive(sample) - sumPolicy(sample)), 10'000 * eps);
   }
 }
 

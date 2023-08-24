@@ -6,6 +6,7 @@
 #include "summator/threads/theads_summator.h"
 #include "summator/openMP/openMP_summator.h"
 #include "summator/naive/naive_summator.h"
+#include "summator/execution_policy/execution_policy_summator.h"
 
 #include <vector>
 #include <algorithm>
@@ -56,6 +57,7 @@ int main() {
             << sumOpenMP(container2) << "\n";
   std::cout << "\nTotal sum of radii using threads approach: "
             << sumThreads(container2) << "\n";
-
+  std::cout << "\nTotal sum of radii using execution policy approach: "
+            << sumPolicy(container2) << "\n";
   return 0;
 }

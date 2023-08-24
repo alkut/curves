@@ -3,7 +3,8 @@ project(summator-lib)
 add_library(summator-lib STATIC
         naive/naive_summator.cpp
         openMP/openMP_summator.cpp
-        threads/threads_summator.cpp)
+        threads/threads_summator.cpp
+        execution_policy/execution_policy_summator.cpp)
 
 target_link_libraries(summator-lib PRIVATE curves-lib)
 
