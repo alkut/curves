@@ -1,5 +1,8 @@
 cmake_minimum_required(VERSION 3.22)
-project(curves)
+project(curves
+        LANGUAGES CXX
+        VERSION 0.0.0
+        HOMEPAGE_URL https://alkut.github.io/curves/)
 
 set(CMAKE_CXX_STANDARD 23)
 

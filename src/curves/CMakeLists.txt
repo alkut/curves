@@ -1,6 +1,4 @@
-project(curves-lib
-        LANGUAGES CXX
-        VERSION 0.0.0)
+project(curves-lib)
 
 set(SOURCES
         Circle.cpp
