@@ -13,24 +13,26 @@ namespace curves {
  */
 class Ellipse final : public ICurve {
   public:
-  /**
-   *
-   * @return shared_ptr if success
-   * @throws std::invalid_argument if validation fails
-   */
-      static std::shared_ptr<ICurve> construct(
-          point2D<float> planeXYCenterPosition, float radiusX, float radiusY);
+      /**
+       * @param radiusX semi-major axis radius
+       * @param radiusY semi-minor axis radius
+       * @param center center in oxy plane coordinates
+       * @return shared_ptr if success
+       * @throws std::invalid_argument if validation fails
+       */
+      static std::shared_ptr<ICurve> construct(float radiusX, float radiusY,
+                                               point2D<float> center = {0, 0});
 
-  point3D<float> Position(float time) const noexcept override;
+      point3D<float> Position(float time) const noexcept override;
   vector3D<float> Derivative(float time) const noexcept override;
 
   ~Ellipse() override = default;
 
   private:
-  Ellipse(point2D<float> planeXYPosition, float radiusX, float radiusY);
+  Ellipse(float radiusX, float radiusY, point2D<float> center);
   static void Validate(float radiusX, float radiusY);
 
-  point2D<float> position_;
+  point2D<float> center_;
   float radiusX_;
   float radiusY_;
 };

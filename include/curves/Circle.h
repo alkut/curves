@@ -13,25 +13,26 @@ namespace curves {
  */
 class Circle final : public ICurve {
   public:
-  /**
-   *
-   * @return shared_ptr if success
-   * @throws std::invalid_argument if validation fails
-   */
-      static std::shared_ptr<ICurve> construct(
-          point2D<float> planeXYCenterPosition, float radius);
+      /**
+       * @param radius radius of circle
+       * @param center center in oxy plane coordinates
+       * @return shared_ptr if success
+       * @throws std::invalid_argument if validation fails
+       */
+      static std::shared_ptr<ICurve> construct(float radius,
+                                               point2D<float> center = {0, 0});
 
-  point3D<float> Position(float time) const noexcept override;
+      point3D<float> Position(float time) const noexcept override;
   vector3D<float> Derivative(float time) const noexcept override;
   float GetRadius() const noexcept;
 
   ~Circle() override = default;
 
   private:
-  Circle(point2D<float> planeXYPosition, float radius);
+  Circle(float radius, point2D<float> center);
   static void Validate(float radius);
 
-  point2D<float> position_;
+  point2D<float> center_;
   float radius_;
 };
 }  // namespace curves

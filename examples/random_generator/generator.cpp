@@ -38,19 +38,18 @@ std::vector<std::shared_ptr<curves::ICurve>> generateCircles(
 
 std::shared_ptr<curves::ICurve> generateCircle() {
   return curves::Circle::construct(
-      {0, 0},
       maxValue * static_cast<float>(random()) / static_cast<float>(max));
 }
 
 std::shared_ptr<curves::ICurve> generateEllipse() {
   return curves::Ellipse::construct(
-      {0, 0}, maxValue * static_cast<float>(random()) / static_cast<float>(max),
+      maxValue * static_cast<float>(random()) / static_cast<float>(max),
       maxValue * static_cast<float>(random()) / static_cast<float>(max));
 }
 
 std::shared_ptr<curves::ICurve> generateHelix() {
   return curves::Helix::construct(
-      {0, 0}, maxValue * static_cast<float>(random()) / static_cast<float>(max),
+      maxValue * static_cast<float>(random()) / static_cast<float>(max),
       maxValue * static_cast<float>(random()) / static_cast<float>(max));
 }
 
