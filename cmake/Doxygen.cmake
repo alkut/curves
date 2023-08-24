@@ -5,7 +5,7 @@ set(CURVES_DOCS_DOXYGEN_IN ${CURVES_DOCS_ROOT}/Doxyfile.in)
 set(CURVES_DOCS_DOXYGEN_OUT ${CURVES_DOCS_ROOT}/Doxyfile)
 
 message(STATUS "[${CMAKE_PROJECT_NAME}] Configuring doxygen...")
-configure_file(${BST_DOCS_DOXYGEN_IN} ${BST_DOCS_DOXYGEN_OUT} @ONLY)
+configure_file(${CURVES_DOCS_DOXYGEN_IN} ${CURVES_DOCS_DOXYGEN_OUT} @ONLY)
 
 find_package(Doxygen)
 
