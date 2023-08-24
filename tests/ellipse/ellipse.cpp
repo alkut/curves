@@ -1,5 +1,5 @@
-#include "../utils.h"
-#include "curves/Ellipse.h"
+#include "../utils.hpp"
+#include "curves/Ellipse.hpp"
 
 #include <gtest/gtest.h>
 

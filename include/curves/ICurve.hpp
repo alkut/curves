@@ -1,7 +1,7 @@
 #ifndef CURVES_CURVE_H
 #define CURVES_CURVE_H
 
-#include "point/Point.h"
+#include "point/Point.hpp"
 
 namespace curves {
 class ICurve {

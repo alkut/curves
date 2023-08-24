@@ -1,5 +1,5 @@
-#include "openMP_summator.h"
-#include "../../utils/utils.h"
+#include "openMP_summator.hpp"
+#include "../../utils/utils.hpp"
 
 namespace curves::summators {
 

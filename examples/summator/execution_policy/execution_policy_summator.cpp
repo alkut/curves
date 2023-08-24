@@ -1,5 +1,5 @@
-#include "execution_policy_summator.h"
-#include "../../utils/utils.h"
+#include "execution_policy_summator.hpp"
+#include "../../utils/utils.hpp"
 
 #include <algorithm>
 #include <execution>

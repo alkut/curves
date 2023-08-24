@@ -1,5 +1,5 @@
-#include "../utils.h"
-#include "curves/Helix.h"
+#include "../utils.hpp"
+#include "curves/Helix.hpp"
 
 #include <numbers>
 

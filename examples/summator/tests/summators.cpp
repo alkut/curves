@@ -3,12 +3,12 @@
 #include <cmath>
 #include <limits>
 
-#include "../naive/naive_summator.h"
-#include "../openMP/openMP_summator.h"
-#include "../threads/theads_summator.h"
-#include "../execution_policy/execution_policy_summator.h"
+#include "../naive/naive_summator.hpp"
+#include "../openMP/openMP_summator.hpp"
+#include "../threads/theads_summator.hpp"
+#include "../execution_policy/execution_policy_summator.hpp"
 
-#include "../../random_generator/generator.h"
+#include "../../random_generator/generator.hpp"
 
 static constexpr float eps = std::numeric_limits<float>::epsilon();
 

@@ -1,4 +1,4 @@
-#include "curves/Ellipse.h"
+#include "curves/Ellipse.hpp"
 
 #include <cmath>
 #include <limits>

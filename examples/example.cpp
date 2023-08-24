@@ -1,13 +1,13 @@
-#include "curves/Circle.h"
-#include "curves/Ellipse.h"
-#include "curves/Helix.h"
-#include "point/Point.h"
-#include "random_generator/generator.h"
-#include "summator/threads/theads_summator.h"
-#include "summator/openMP/openMP_summator.h"
-#include "summator/naive/naive_summator.h"
-#include "summator/execution_policy/execution_policy_summator.h"
-#include "utils/utils.h"
+#include "curves/Circle.hpp"
+#include "curves/Ellipse.hpp"
+#include "curves/Helix.hpp"
+#include "point/Point.hpp"
+#include "random_generator/generator.hpp"
+#include "summator/threads/theads_summator.hpp"
+#include "summator/openMP/openMP_summator.hpp"
+#include "summator/naive/naive_summator.hpp"
+#include "summator/execution_policy/execution_policy_summator.hpp"
+#include "utils/utils.hpp"
 
 #include <vector>
 #include <algorithm>

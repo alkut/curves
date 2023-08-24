@@ -1,5 +1,5 @@
-#include "naive_summator.h"
-#include "../../utils/utils.h"
+#include "naive_summator.hpp"
+#include "../../utils/utils.hpp"
 
 #include <ranges>
 

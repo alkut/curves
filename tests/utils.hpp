@@ -1,7 +1,7 @@
-#ifndef CURVES_UTILS_H
+#ifndef CURVES_UTILS_HPP
 #define CURVES_UTILS_H
 
-#include "point/Point.h"
+#include "point/Point.hpp"
 
 #include <cmath>
 #include <limits>
@@ -24,4 +24,4 @@ void VerifyEqual(const curves::Point<dimension, T>& lhs,
     }
 }
 
-#endif //CURVES_UTILS_H
+#endif  // CURVES_UTILS_HPP

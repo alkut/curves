@@ -1,5 +1,5 @@
-#include "../utils.h"
-#include "curves/Circle.h"
+#include "../utils.hpp"
+#include "curves/Circle.hpp"
 
 #include <gtest/gtest.h>
 

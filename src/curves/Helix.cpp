@@ -1,4 +1,4 @@
-#include "curves/Helix.h"
+#include "curves/Helix.hpp"
 
 #include <cmath>
 #include <limits>

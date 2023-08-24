@@ -1,5 +1,5 @@
-#ifndef CURVES_POINT_FORWARD_H
-#define CURVES_POINT_FORWARD_H
+#ifndef CURVES_POINT_FORWARD_HPP
+#define CURVES_POINT_FORWARD_HPP
 
 #include <array>
 #include <concepts>
@@ -55,4 +55,4 @@ template<std::size_t dimension, std::floating_point T>
     };
     }  // namespace curves
 
-#endif //CURVES_POINT_FORWARD_H
+#endif  // CURVES_POINT_FORWARD_HPP

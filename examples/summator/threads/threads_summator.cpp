@@ -1,5 +1,5 @@
-#include "theads_summator.h"
-#include "../../utils/utils.h"
+#include "theads_summator.hpp"
+#include "../../utils/utils.hpp"
 
 #include <thread>
 #include <span>

@@ -1,7 +1,7 @@
-#ifndef CURVES_CIRCLE_H
-#define CURVES_CIRCLE_H
+#ifndef CURVES_CIRCLE_HPP
+#define CURVES_CIRCLE_HPP
 
-#include "curves/ICurve.h"
+#include "curves/ICurve.hpp"
 
 #include <memory>
 
@@ -13,14 +13,14 @@ namespace curves {
  */
 class Circle final : public ICurve {
   public:
-      /**
-       * @param radius radius of circle
-       * @param center center in oxy plane coordinates
-       * @return shared_ptr if success
-       * @throws std::invalid_argument if validation fails
-       */
-      static std::shared_ptr<ICurve> construct(float radius,
-                                               point2D<float> center = {0, 0});
+  /**
+   * @param radius radius of circle
+   * @param center center in oxy plane coordinates
+   * @return shared_ptr if success
+   * @throws std::invalid_argument if validation fails
+   */
+  static std::shared_ptr<ICurve> construct(float radius,
+                                           point2D<float> center = {0, 0});
 
       point3D<float> Position(float time) const noexcept override;
   vector3D<float> Derivative(float time) const noexcept override;
@@ -37,4 +37,4 @@ class Circle final : public ICurve {
 };
 }  // namespace curves
 
-#endif  // CURVES_CIRCLE_H
+#endif  // CURVES_CIRCLE_HPP

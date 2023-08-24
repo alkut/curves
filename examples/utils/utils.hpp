@@ -1,7 +1,7 @@
-#ifndef CURVES_UTILS_H
-#define CURVES_UTILS_H
+#ifndef CURVES_UTILS_HPP
+#define CURVES_UTILS_HPP
 
-#include "curves/Circle.h"
+#include "curves/Circle.hpp"
 #include <vector>
 
 namespace curves::utils {
@@ -12,4 +12,4 @@ float getRadius(const std::shared_ptr<curves::ICurve>& ptr);
 
 }  // namespace curves::utils
 
-#endif  // CURVES_UTILS_H
+#endif  // CURVES_UTILS_HPP

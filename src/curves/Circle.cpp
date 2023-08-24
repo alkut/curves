@@ -1,4 +1,4 @@
-#include "curves/Circle.h"
+#include "curves/Circle.hpp"
 
 #include <cmath>
 #include <limits>

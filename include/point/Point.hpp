@@ -1,7 +1,7 @@
-#ifndef CURVES_POINT_H
-#define CURVES_POINT_H
+#ifndef CURVES_POINT_HPP
+#define CURVES_POINT_HPP
 
-#include "Point-forward.h"
+#include "Point-forward.hpp"
 
 namespace curves {
 
@@ -139,4 +139,4 @@ std::ostream& operator<<(std::ostream& out,
   return out;
 }
 
-#endif //CURVES_POINT_H
+#endif  // CURVES_POINT_HPP

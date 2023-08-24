@@ -1,9 +1,9 @@
-#ifndef CURVES_GENERATOR_H
-#define CURVES_GENERATOR_H
+#ifndef CURVES_GENERATOR_HPP
+#define CURVES_GENERATOR_HPP
 
-#include "curves/Circle.h"
-#include "curves/Ellipse.h"
-#include "curves/Helix.h"
+#include "curves/Circle.hpp"
+#include "curves/Ellipse.hpp"
+#include "curves/Helix.hpp"
 
 #include <random>
 #include <limits>
@@ -18,4 +18,4 @@ std::shared_ptr<curves::ICurve> generateEllipse();
 std::shared_ptr<curves::ICurve> generateHelix();
 }  // namespace curves::generator
 
-#endif  // CURVES_GENERATOR_H
+#endif  // CURVES_GENERATOR_HPP
