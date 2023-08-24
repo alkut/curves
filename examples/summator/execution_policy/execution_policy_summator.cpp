@@ -10,8 +10,13 @@ inline float getRadius(const std::shared_ptr<curves::ICurve>& ptr) {
 
 float sumPolicy(const std::vector<std::shared_ptr<curves::ICurve>>& container) {
   std::vector<float> radii(container.size());
-  std::transform(std::execution::parallel_policy(), container.cbegin(),
+#ifdef __GNUC__
+  std::transform(container.cbegin(), container.cend(), radii.begin(),
+                 getRadius);
+#else
+  std::transform(std::execution::unsequenced_policy(), container.cbegin(),
                  container.cend(), radii.begin(), getRadius);
+#endif
   return std::reduce(std::execution::unsequenced_policy(), radii.cbegin(),
                      radii.cend());
 }
