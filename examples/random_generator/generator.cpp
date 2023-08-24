@@ -4,7 +4,7 @@
 
 namespace curves::generator {
 
-constexpr float maxValue  = 100.f;
+constexpr float maxValue  = 1.f;
 constexpr std::size_t max = std::numeric_limits<std::size_t>::max();
 
 std::random_device randomDevice;

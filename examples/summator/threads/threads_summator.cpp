@@ -9,20 +9,25 @@ float sumThreads(
     const std::vector<std::shared_ptr<curves::ICurve>>& container) {
   const auto threadCount = std::thread::hardware_concurrency();
   std::vector<float> sumsOfRadii(threadCount, 0.f);
-  std::vector<std::span<std::shared_ptr<curves::ICurve>, 0>> spans(threadCount);
+  std::vector<std::thread> threads(threadCount);
 
-  const std::size_t partition_size = container.size() / threadCount;
+  const std::size_t partition_size =
+      (container.size() + threadCount - 1) / threadCount;
   for (std::size_t i = 0; i < threadCount; ++i) {
     sumsOfRadii[i] = 0.f;
-    /*
-    spans[i] = std::span<std::shared_ptr<curves::ICurve>, 0>
-        (container.cbegin() + 2, container.cbegin() + 3);
-
-    spans[i] = std::move((std::span {container}).subspan(i * partition_size,
-    std::max(partition_size, container.size() - i * partition_size))); spans[i]
-    = {container.begin() + i * partition_size, container.begin() + std::max((i +
-    1) * partition_size, container.size())};
-                      */
+    threads[i]     = std::thread(
+        [sum  = &sumsOfRadii[i],
+         span = std::span(container.cbegin() + i * partition_size,
+                              container.cbegin() +
+                                  std::min((i + 1) * partition_size,
+                                           container.size()))]() mutable -> void {
+          for (const auto& circle : span) {
+            *sum += dynamic_cast<curves::Circle*>(circle.get())->GetRadius();
+          }
+        });
+  }
+  for (std::size_t i = 0; i < threadCount; ++i) {
+    threads[i].join();
   }
   return std::accumulate(sumsOfRadii.cbegin(), sumsOfRadii.cend(), 0.f);
 }

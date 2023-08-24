@@ -12,13 +12,31 @@
 static constexpr float eps = std::numeric_limits<float>::epsilon();
 
 TEST(openMP, small) {
-  auto sample = curves::generator::generateCircles(10);
-  ASSERT_LE(std::fabs(sumNaive(sample) - sumOpenMP(sample)), 10 * eps);
+  for (std::size_t i = 0; i < 1000; ++i) {
+    auto sample = curves::generator::generateCircles(10);
+    ASSERT_LE(std::fabs(sumNaive(sample) - sumOpenMP(sample)), 10 * eps);
+  }
 }
 
 TEST(openMP, big) {
-  auto sample = curves::generator::generateCircles(1'000'000);
-  ASSERT_LE(std::fabs(sumNaive(sample) - sumOpenMP(sample)), 1'000 * eps);
+  for (std::size_t i = 0; i < 10; ++i) {
+    auto sample = curves::generator::generateCircles(1'000);
+    ASSERT_LE(std::fabs(sumNaive(sample) - sumOpenMP(sample)), 10'000 * eps);
+  }
+}
+
+TEST(threads, small) {
+  for (std::size_t i = 0; i < 1000; ++i) {
+    auto sample = curves::generator::generateCircles(10);
+    ASSERT_LE(std::fabs(sumNaive(sample) - sumThreads(sample)), 10 * eps);
+  }
+}
+
+TEST(threads, big) {
+  for (std::size_t i = 0; i < 10; ++i) {
+    auto sample = curves::generator::generateCircles(1'000);
+    ASSERT_LE(std::fabs(sumNaive(sample) - sumThreads(sample)), 10'000 * eps);
+  }
 }
 
 int main(int argc, char** argv) {

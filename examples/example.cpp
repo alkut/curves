@@ -52,7 +52,12 @@ int main() {
   }
   std::cout << "\n";
 
-  std::cout << "\nTotal sum of radii: " << sumOpenMP(container2) << "\n";
+  std::cout << "\nTotal sum of radii using naive approach: "
+            << sumNaive(container2) << "\n";
+  std::cout << "\nTotal sum of radii using openMP approach: "
+            << sumOpenMP(container2) << "\n";
+  std::cout << "\nTotal sum of radii using threads approach: "
+            << sumThreads(container2) << "\n";
 
   return 0;
 }
