@@ -3,6 +3,7 @@
 
 #include <curves/Circle.hpp>
 #include <vector>
+#include <memory>
 
 namespace curves::summators {
 [[nodiscard]] float sumNaive(

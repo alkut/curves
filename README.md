@@ -2,7 +2,7 @@
 
 ## requirements
 - cmake 3.22+
-- g++ (gcc 12.2 && msvc 19.37.32822.0 tested)
+- g++ (gcc 12.3 && msvc 19.37.32822.0 tested)
 
 ## build
 

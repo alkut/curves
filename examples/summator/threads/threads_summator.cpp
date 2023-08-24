@@ -5,6 +5,7 @@
 #include <span>
 #include <numeric>
 #include <ranges>
+#include <algorithm>
 
 namespace curves::summators {
 

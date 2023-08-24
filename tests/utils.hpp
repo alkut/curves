@@ -1,5 +1,5 @@
 #ifndef CURVES_UTILS_HPP
-#define CURVES_UTILS_H
+#define CURVES_UTILS_HPP
 
 #include "point/Point.hpp"
 

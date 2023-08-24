@@ -2,6 +2,7 @@
 
 #include <stdexcept>
 #include <utility>
+#include <memory>
 
 namespace curves::generator {
 
