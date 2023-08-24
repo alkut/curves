@@ -37,20 +37,38 @@ std::vector<std::shared_ptr<curves::ICurve>> generateCircles(
 }
 
 std::shared_ptr<curves::ICurve> generateCircle() {
-  return curves::Circle::construct(
-      maxValue * static_cast<float>(random()) / static_cast<float>(max));
+  while (true) {
+    try {
+      return curves::Circle::construct(maxValue * static_cast<float>(random()) /
+                                       static_cast<float>(max));
+    } catch (const std::invalid_argument& ex) {
+      std::cerr << ex.what() << "\n";
+    }
+  }
 }
 
 std::shared_ptr<curves::ICurve> generateEllipse() {
-  return curves::Ellipse::construct(
-      maxValue * static_cast<float>(random()) / static_cast<float>(max),
-      maxValue * static_cast<float>(random()) / static_cast<float>(max));
+  while (true) {
+    try {
+      return curves::Ellipse::construct(
+          maxValue * static_cast<float>(random()) / static_cast<float>(max),
+          maxValue * static_cast<float>(random()) / static_cast<float>(max));
+    } catch (const std::invalid_argument& ex) {
+      std::cerr << ex.what() << "\n";
+    }
+  }
 }
 
 std::shared_ptr<curves::ICurve> generateHelix() {
-  return curves::Helix::construct(
-      maxValue * static_cast<float>(random()) / static_cast<float>(max),
-      maxValue * static_cast<float>(random()) / static_cast<float>(max));
+  while (true) {
+    try {
+      return curves::Helix::construct(
+          maxValue * static_cast<float>(random()) / static_cast<float>(max),
+          maxValue * static_cast<float>(random()) / static_cast<float>(max));
+    } catch (const std::invalid_argument& ex) {
+      std::cerr << ex.what() << "\n";
+    }
+  }
 }
 
 }  // namespace curves::generator
