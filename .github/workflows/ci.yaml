@@ -17,7 +17,7 @@ jobs:
         working-directory: ./build
         run: ctest
       - name: run lint
-        run: echo "$(cpplint --filter=-legal/copyright,-build/header_guard,-build/include_order --recursive --exclude=build/* --output=emacs . 2> analyze.txt)"
+        run: echo "$(cpplint --filter=-legal/copyright,-build/header_guard,-build/include_order,-whitespace/indent --recursive --exclude=build/* --output=emacs . 2> analyze.txt)"
       - name: show lint analyze
         run: echo "$(cat analyze.txt)"
       - name: valgrind circle test

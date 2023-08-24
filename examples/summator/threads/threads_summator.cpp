@@ -31,7 +31,7 @@ float sumThreads(
     threads[i]     = std::thread(
         [sum  = &sumsOfRadii[i],
          span = std::span(container.cbegin() + i * partition_size,
-                              container.cbegin() + (i + 1) * partition_size)]() mutable -> void {
+             container.cbegin() + (i + 1) * partition_size)]() mutable -> void {
           for (auto radius :
                span | std::ranges::views::transform(curves::utils::getRadius)) {
             *sum += radius;
