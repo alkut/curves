@@ -1,12 +1,11 @@
 #include "execution_policy_summator.h"
+#include "../../utils/utils.h"
 
 #include <algorithm>
 #include <execution>
 #include <numeric>
 
-inline float getRadius(const std::shared_ptr<curves::ICurve>& ptr) {
-  return dynamic_cast<curves::Circle*>(ptr.get())->GetRadius();
-}
+namespace curves::summators {
 
 float sumPolicy(const std::vector<std::shared_ptr<curves::ICurve>>& container) {
   std::vector<float> radii(container.size());
@@ -16,8 +15,9 @@ float sumPolicy(const std::vector<std::shared_ptr<curves::ICurve>>& container) {
   return std::reduce(radii.cbegin(), radii.cend());
 #else
   std::transform(std::execution::unsequenced_policy(), container.cbegin(),
-                 container.cend(), radii.begin(), getRadius);
+                 container.cend(), radii.begin(), curves::utils::getRadius);
   return std::reduce(std::execution::unsequenced_policy(), radii.cbegin(),
                      radii.cend());
 #endif
 }
+}  // namespace curves::summators

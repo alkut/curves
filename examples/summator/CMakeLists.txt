@@ -6,7 +6,7 @@ add_library(summator-lib STATIC
         threads/threads_summator.cpp
         execution_policy/execution_policy_summator.cpp)
 
-target_link_libraries(summator-lib PRIVATE curves-lib)
+target_link_libraries(summator-lib PRIVATE curves-lib example-utils-lib)
 
 if (BUILD_TESTS)
 

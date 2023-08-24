@@ -7,20 +7,13 @@
 #include "summator/openMP/openMP_summator.h"
 #include "summator/naive/naive_summator.h"
 #include "summator/execution_policy/execution_policy_summator.h"
+#include "utils/utils.h"
 
 #include <vector>
 #include <algorithm>
 #include <iostream>
 #include <numbers>
 #include <ranges>
-
-inline bool isActuallyCircle(const std::shared_ptr<curves::ICurve>& ptr) {
-  return dynamic_cast<curves::Circle*>(ptr.get()) != nullptr;
-}
-
-inline float getRadius(const std::shared_ptr<curves::ICurve>& ptr) {
-  return dynamic_cast<curves::Circle*>(ptr.get())->GetRadius();
-}
 
 int main() {
   constexpr std::size_t size = 10;
@@ -35,29 +28,30 @@ int main() {
               << curve->Derivative(time) << "\n\n";
   }
   std::vector<std::shared_ptr<curves::ICurve>> container2;
-  for (const auto& curve :
-       container1 | std::ranges::views::filter(isActuallyCircle)) {
+  for (const auto& curve : container1 | std::ranges::views::filter(
+                                            curves::utils::isActuallyCircle)) {
     container2.push_back(curve);
   }
 
   std::sort(container2.begin(), container2.end(),
             [](const auto& lhs, const auto& rhs) -> bool {
-              return getRadius(lhs) < getRadius(rhs);
+              return curves::utils::getRadius(lhs) <
+                     curves::utils::getRadius(rhs);
             });
 
   std::cout << "\n\nRadii of circles:\n";
   for (const auto& circle : container2) {
-    std::cout << getRadius(circle) << " ";
+    std::cout << curves::utils::getRadius(circle) << " ";
   }
   std::cout << "\n";
 
   std::cout << "\nTotal sum of radii using naive approach: "
-            << sumNaive(container2) << "\n";
+            << curves::summators::sumNaive(container2) << "\n";
   std::cout << "\nTotal sum of radii using openMP approach: "
-            << sumOpenMP(container2) << "\n";
+            << curves::summators::sumOpenMP(container2) << "\n";
   std::cout << "\nTotal sum of radii using threads approach: "
-            << sumThreads(container2) << "\n";
+            << curves::summators::sumThreads(container2) << "\n";
   std::cout << "\nTotal sum of radii using execution policy approach: "
-            << sumPolicy(container2) << "\n";
+            << curves::summators::sumPolicy(container2) << "\n";
   return 0;
 }
