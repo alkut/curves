@@ -1,7 +1,8 @@
-#include "naive_summator.hpp"
+#include "examples/summator/naive/naive_summator.hpp"
 #include "examples/utils/utils.hpp"
 
 #include <ranges>
+#include <algorithm>
 
 namespace curves::summators {
 

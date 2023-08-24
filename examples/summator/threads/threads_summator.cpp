@@ -1,4 +1,4 @@
-#include "threads_summator.hpp"
+#include "examples/summator/threads/threads_summator.hpp"
 #include "examples/utils/utils.hpp"
 
 #include <thread>

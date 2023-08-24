@@ -1,4 +1,4 @@
-#include "generator.hpp"
+#include "examples/random_generator/generator.hpp"
 
 #include <stdexcept>
 #include <utility>

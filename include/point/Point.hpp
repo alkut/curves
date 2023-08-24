@@ -1,7 +1,7 @@
 #ifndef CURVES_POINT_HPP
 #define CURVES_POINT_HPP
 
-#include "Point-forward.hpp"
+#include "point/Point-forward.hpp"
 
 namespace curves {
 

@@ -8,6 +8,7 @@
 #include <random>
 #include <limits>
 #include <vector>
+#include <memory>
 
 namespace curves::generator {
 [[nodiscard]] std::shared_ptr<curves::ICurve> generate() noexcept;

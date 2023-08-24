@@ -1,4 +1,4 @@
-#include "execution_policy_summator.hpp"
+#include "examples/summator/execution_policy/execution_policy_summator.hpp"
 #include "examples/utils/utils.hpp"
 
 #include <algorithm>
