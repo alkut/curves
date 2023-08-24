@@ -13,10 +13,11 @@ float sumPolicy(const std::vector<std::shared_ptr<curves::ICurve>>& container) {
 #ifdef __GNUC__
   std::transform(container.cbegin(), container.cend(), radii.begin(),
                  getRadius);
+  return std::reduce(radii.cbegin(), radii.cend());
 #else
   std::transform(std::execution::unsequenced_policy(), container.cbegin(),
                  container.cend(), radii.begin(), getRadius);
-#endif
   return std::reduce(std::execution::unsequenced_policy(), radii.cbegin(),
                      radii.cend());
+#endif
 }
