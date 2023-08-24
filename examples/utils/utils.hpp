@@ -6,7 +6,7 @@
 
 namespace curves::utils {
 
-bool isActuallyCircle(const std::shared_ptr<curves::ICurve>& ptr);
+bool isCircle(const std::shared_ptr<curves::ICurve>& ptr) noexcept;
 
 float getRadius(const std::shared_ptr<curves::ICurve>& ptr);
 

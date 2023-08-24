@@ -7,7 +7,8 @@
 
 namespace curves::summators {
 
-float sumPolicy(const std::vector<std::shared_ptr<curves::ICurve>>& container) {
+float sumPolicy(
+    const std::vector<std::shared_ptr<curves::ICurve>>& container) noexcept {
   std::vector<float> radii(container.size());
 #ifdef __GNUC__
   std::transform(container.cbegin(), container.cend(), radii.begin(),

@@ -10,12 +10,13 @@
 #include <vector>
 
 namespace curves::generator {
-std::shared_ptr<curves::ICurve> generate();
-std::vector<std::shared_ptr<curves::ICurve>> generateCircles(std::size_t count);
+[[nodiscard]] std::shared_ptr<curves::ICurve> generate() noexcept;
+[[nodiscard]] std::vector<std::shared_ptr<curves::ICurve>> generateCircles(
+    std::size_t count) noexcept;
 
-std::shared_ptr<curves::ICurve> generateCircle();
-std::shared_ptr<curves::ICurve> generateEllipse();
-std::shared_ptr<curves::ICurve> generateHelix();
+[[nodiscard]] std::shared_ptr<curves::ICurve> generateCircle() noexcept;
+[[nodiscard]] std::shared_ptr<curves::ICurve> generateEllipse() noexcept;
+[[nodiscard]] std::shared_ptr<curves::ICurve> generateHelix() noexcept;
 }  // namespace curves::generator
 
 #endif  // CURVES_GENERATOR_HPP

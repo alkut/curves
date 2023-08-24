@@ -1,6 +1,7 @@
 #include "generator.hpp"
 
 #include <stdexcept>
+#include <utility>
 
 namespace curves::generator {
 
@@ -14,7 +15,7 @@ inline std::size_t random(std::size_t limit = max) {
   return std::uniform_int_distribution<std::size_t>(0, limit)(randomEngine);
 }
 
-std::shared_ptr<curves::ICurve> generate() {
+std::shared_ptr<curves::ICurve> generate() noexcept {
   auto type = random(2);
   switch (type) {
     case 0:
@@ -24,11 +25,11 @@ std::shared_ptr<curves::ICurve> generate() {
     case 2:
       return generateHelix();
   }
-  throw std::runtime_error("something strange happened");
+  std::unreachable();
 }
 
 std::vector<std::shared_ptr<curves::ICurve>> generateCircles(
-    std::size_t count) {
+    std::size_t count) noexcept {
   std::vector<std::shared_ptr<curves::ICurve>> res(count);
   for (auto& curve : res) {
     curve = generateCircle();
@@ -36,7 +37,7 @@ std::vector<std::shared_ptr<curves::ICurve>> generateCircles(
   return res;
 }
 
-std::shared_ptr<curves::ICurve> generateCircle() {
+std::shared_ptr<curves::ICurve> generateCircle() noexcept {
   while (true) {
     try {
       return curves::Circle::construct(maxValue * static_cast<float>(random()) /
@@ -47,7 +48,7 @@ std::shared_ptr<curves::ICurve> generateCircle() {
   }
 }
 
-std::shared_ptr<curves::ICurve> generateEllipse() {
+std::shared_ptr<curves::ICurve> generateEllipse() noexcept {
   while (true) {
     try {
       return curves::Ellipse::construct(
@@ -59,7 +60,7 @@ std::shared_ptr<curves::ICurve> generateEllipse() {
   }
 }
 
-std::shared_ptr<curves::ICurve> generateHelix() {
+std::shared_ptr<curves::ICurve> generateHelix() noexcept {
   while (true) {
     try {
       return curves::Helix::construct(

@@ -3,7 +3,7 @@
 #include "curves/Helix.hpp"
 #include "point/Point.hpp"
 #include "random_generator/generator.hpp"
-#include "summator/threads/theads_summator.hpp"
+#include "summator/threads/threads_summator.hpp"
 #include "summator/openMP/openMP_summator.hpp"
 #include "summator/naive/naive_summator.hpp"
 #include "summator/execution_policy/execution_policy_summator.hpp"
@@ -28,8 +28,8 @@ int main() {
               << curve->Derivative(time) << "\n\n";
   }
   std::vector<std::shared_ptr<curves::ICurve>> container2;
-  for (const auto& curve : container1 | std::ranges::views::filter(
-                                            curves::utils::isActuallyCircle)) {
+  for (const auto& curve :
+       container1 | std::ranges::views::filter(curves::utils::isCircle)) {
     container2.push_back(curve);
   }
 

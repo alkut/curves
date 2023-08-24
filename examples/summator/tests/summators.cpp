@@ -5,7 +5,7 @@
 
 #include "../naive/naive_summator.hpp"
 #include "../openMP/openMP_summator.hpp"
-#include "../threads/theads_summator.hpp"
+#include "../threads/threads_summator.hpp"
 #include "../execution_policy/execution_policy_summator.hpp"
 
 #include "../../random_generator/generator.hpp"

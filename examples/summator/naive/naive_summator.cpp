@@ -5,7 +5,8 @@
 
 namespace curves::summators {
 
-float sumNaive(const std::vector<std::shared_ptr<curves::ICurve>>& container) {
+float sumNaive(
+    const std::vector<std::shared_ptr<curves::ICurve>>& container) noexcept {
   float sumOfRadii = 0.f;
   for (auto radius :
        container | std::ranges::views::transform(curves::utils::getRadius)) {

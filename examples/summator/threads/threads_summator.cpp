@@ -1,4 +1,4 @@
-#include "theads_summator.hpp"
+#include "threads_summator.hpp"
 #include "../../utils/utils.hpp"
 
 #include <thread>
@@ -9,7 +9,7 @@
 namespace curves::summators {
 
 float sumThreads(
-    const std::vector<std::shared_ptr<curves::ICurve>>& container) {
+    const std::vector<std::shared_ptr<curves::ICurve>>& container) noexcept {
   const auto threadCount = std::thread::hardware_concurrency();
   if (threadCount == 1 || container.size() < threadCount) {
     float ans = 0.f;

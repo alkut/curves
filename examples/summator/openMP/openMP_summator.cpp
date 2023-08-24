@@ -3,7 +3,8 @@
 
 namespace curves::summators {
 
-float sumOpenMP(const std::vector<std::shared_ptr<curves::ICurve>>& container) {
+float sumOpenMP(
+    const std::vector<std::shared_ptr<curves::ICurve>>& container) noexcept {
   float sumOfRadii = 0.f;
 #pragma omp parallel for reduction(+ : sum)
   for (const auto& circle : container) {

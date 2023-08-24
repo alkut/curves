@@ -6,7 +6,8 @@
 
 namespace curves::summators {
 
-float sumOpenMP(const std::vector<std::shared_ptr<curves::ICurve>>& container);
+float sumOpenMP(
+    const std::vector<std::shared_ptr<curves::ICurve>>& container) noexcept;
 
 }
 
