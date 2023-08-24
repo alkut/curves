@@ -25,7 +25,7 @@ template<std::floating_point T>
 template<std::floating_point T>
     using vector3D [[maybe_unused]] = Vector<3, T>;
 
-    template<std::size_t dimension, std::floating_point T>
+    template <std::size_t dimension, std::floating_point T>
     struct Vector : public std::array<T, dimension> {
   [[nodiscard]] constexpr Vector<dimension, T> operator*(
           T scalar) const noexcept;
@@ -52,7 +52,7 @@ template<std::floating_point T>
                                       const Vector<size, U>& vector);
     };
 
-    template<std::size_t dimension, std::floating_point T>
+    template <std::size_t dimension, std::floating_point T>
     struct Point : public std::array<T, dimension> {
       [[nodiscard]] constexpr Vector<dimension, T> operator-(
             const Point<dimension, T>& rhs) const noexcept;

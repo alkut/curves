@@ -9,7 +9,7 @@ else ()
 # As alternative, just paste it here:
 #
     if ( NOT RUN_ON_CI )
-        set(CMAKE_TOOLCHAIN_FILE C:/Users/alex/vcpkg/scripts/buildsystems/vcpkg.cmake)
+        #set(CMAKE_TOOLCHAIN_FILE C:/Users/alex/vcpkg/scripts/buildsystems/vcpkg.cmake)
     endif ()
 
     if ( DEFINED CMAKE_TOOLCHAIN_FILE )
