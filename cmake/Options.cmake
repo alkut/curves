@@ -17,6 +17,12 @@ option(BUILD_SHARED "build shared lib instead of static" OFF)
 
 option(RUN_ON_CI "used for ci/cd" OFF)
 
+option(BUILD_DOCS "generate documentation using doxygen" OFF)
+
+if (BUILD_DOCS)
+    include(cmake/Doxygen.cmake)
+endif ()
+
 option(SANITIZE "memory sanitizer" OFF)
 
 if (SANITIZE)
