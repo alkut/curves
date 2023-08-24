@@ -1,5 +1,5 @@
 #include "point/Point.hpp"
-#include "../utils.hpp"
+#include "tests/utils.hpp"
 
 #include <gtest/gtest.h>
 

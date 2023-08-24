@@ -13,6 +13,7 @@ if (NOT BINARY_IN_BUILD)
 endif ()
 
 include_directories(include)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 
 include(cmake/Env.cmake)
 include(cmake/Options.cmake)

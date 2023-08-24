@@ -22,11 +22,12 @@ class Circle final : public ICurve {
   static std::shared_ptr<ICurve> construct(float radius,
                                            point2D<float> center = {0, 0});
 
-      point3D<float> Position(float time) const noexcept override;
-  vector3D<float> Derivative(float time) const noexcept override;
-  float GetRadius() const noexcept;
+      [[nodiscard]] point3D<float> Position(float time) const noexcept override;
+      [[nodiscard]] vector3D<float> Derivative(
+          float time) const noexcept override;
+      [[nodiscard]] float GetRadius() const noexcept;
 
-  ~Circle() override = default;
+      ~Circle() override = default;
 
   private:
   Circle(float radius, point2D<float> center);

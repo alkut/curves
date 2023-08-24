@@ -5,7 +5,7 @@
 #include <vector>
 
 namespace curves::summators {
-float sumPolicy(
+[[nodiscard]] float sumPolicy(
     const std::vector<std::shared_ptr<curves::ICurve>>& container) noexcept;
 }
 

@@ -23,10 +23,11 @@ class Ellipse final : public ICurve {
   static std::shared_ptr<ICurve> construct(float radiusX, float radiusY,
                                            point2D<float> center = {0, 0});
 
-      point3D<float> Position(float time) const noexcept override;
-  vector3D<float> Derivative(float time) const noexcept override;
+      [[nodiscard]] point3D<float> Position(float time) const noexcept override;
+      [[nodiscard]] vector3D<float> Derivative(
+          float time) const noexcept override;
 
-  ~Ellipse() override = default;
+      ~Ellipse() override = default;
 
   private:
   Ellipse(float radiusX, float radiusY, point2D<float> center);

@@ -5,10 +5,8 @@
 #include <vector>
 
 namespace curves::summators {
-
-float sumNaive(
+[[nodiscard]] float sumNaive(
     const std::vector<std::shared_ptr<curves::ICurve>>& container) noexcept;
-
 }
 
 #endif  // CURVES_NAIVE_SUMMATOR_HPP

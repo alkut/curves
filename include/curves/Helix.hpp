@@ -24,10 +24,11 @@ class Helix final : public ICurve {
   static std::shared_ptr<ICurve> construct(float radius, float step,
                                            point2D<float> center = {0, 0});
 
-  point3D<float> Position(float time) const noexcept override;
-  vector3D<float> Derivative(float time) const noexcept override;
+      [[nodiscard]] point3D<float> Position(float time) const noexcept override;
+      [[nodiscard]] vector3D<float> Derivative(
+          float time) const noexcept override;
 
-  ~Helix() override = default;
+      ~Helix() override = default;
 
   private:
   Helix(float radius, float step, point2D<float> center);

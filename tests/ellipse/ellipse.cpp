@@ -1,4 +1,4 @@
-#include "../utils.hpp"
+#include "tests/utils.hpp"
 #include "curves/Ellipse.hpp"
 
 #include <gtest/gtest.h>

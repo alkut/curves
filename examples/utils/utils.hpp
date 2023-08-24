@@ -6,9 +6,10 @@
 
 namespace curves::utils {
 
-bool isCircle(const std::shared_ptr<curves::ICurve>& ptr) noexcept;
+[[nodiscard]] bool isCircle(
+    const std::shared_ptr<curves::ICurve>& ptr) noexcept;
 
-float getRadius(const std::shared_ptr<curves::ICurve>& ptr);
+[[nodiscard]] float getRadius(const std::shared_ptr<curves::ICurve>& ptr);
 
 }  // namespace curves::utils
 

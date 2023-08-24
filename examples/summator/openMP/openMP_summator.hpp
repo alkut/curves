@@ -5,10 +5,8 @@
 #include <vector>
 
 namespace curves::summators {
-
-float sumOpenMP(
+[[nodiscard]] float sumOpenMP(
     const std::vector<std::shared_ptr<curves::ICurve>>& container) noexcept;
-
 }
 
 #endif  // CURVES_OPENMP_SUMMATOR_HPP
