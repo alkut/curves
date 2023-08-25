@@ -29,28 +29,28 @@ float sumThreads(
   for (std::size_t i = 0; i < threadCount - 1; ++i) {
     sumsOfRadii[i] = 0.f;
     threads[i]     = std::thread(
-        [sum  = &sumsOfRadii[i],
+        [&sum = sumsOfRadii[i],
          span = std::span(container.cbegin() + i * partition_size,
              container.cbegin() + (i + 1) * partition_size)]() mutable -> void {
           for (auto radius :
                span | std::ranges::views::transform(curves::utils::getRadius)) {
-            *sum += radius;
+            sum += radius;
           }
         });
   }
 
-  sumsOfRadii[threadCount - 1] = 0.f;
+  sumsOfRadii.back() = 0.f;
   for (auto radius :
        container |
            std::ranges::views::drop((threadCount - 1) * partition_size) |
            std::ranges::views::transform(curves::utils::getRadius)) {
-    sumsOfRadii[threadCount - 1] += radius;
+    sumsOfRadii.back() += radius;
   }
 
   for (auto& thread : threads) {
     thread.join();
   }
-  return std::accumulate(sumsOfRadii.cbegin(), sumsOfRadii.cend(), 0.f);
+  return std::reduce(sumsOfRadii.cbegin(), sumsOfRadii.cend());
 }
 
 }  // namespace curves::summators
