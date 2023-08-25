@@ -15,13 +15,12 @@ std::shared_ptr<ICurve> Helix::construct(float radius, float step,
 
 point3D<float> Helix::Position(float time) const noexcept {
   return {center_[0] + radius_ * std::cos(time),
-          center_[1] + radius_ * std::sin(time),
-          step_ * time / (2.f * std::numbers::pi_v<float>)};
+          center_[1] + radius_ * std::sin(time), step_ * time / (2.f * PI)};
 }
 
 vector3D<float> Helix::Derivative(float time) const noexcept {
   return {-radius_ * std::sin(time), radius_ * std::cos(time),
-          step_ / (2.f * std::numbers::pi_v<float>)};
+          step_ / (2.f * PI)};
 }
 
 Helix::Helix(float radius, float step, point2D<float> center)

@@ -4,6 +4,7 @@
 #include "curves/ICurve.hpp"
 
 #include <memory>
+#include <numbers>
 
 namespace curves {
 /**
@@ -37,6 +38,8 @@ class Helix final : public ICurve {
   point2D<float> center_;
   float radius_;
   float step_;
+
+  static constexpr float PI = std::numbers::pi_v<float>;
 };
 }  // namespace curves
 
